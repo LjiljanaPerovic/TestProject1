@@ -11,5 +11,4 @@ public static class WebElementChecks
         WebDriverWait wait = new WebDriverWait(driver, interval);
         return wait.Until(ExpectedConditions.ElementIsVisible(by));
     }
-
 }

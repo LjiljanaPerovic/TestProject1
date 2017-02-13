@@ -5,30 +5,25 @@ using System;
 
 namespace ConsoleApplication1
 {
-    
+
     public class RegistrationPage
     {
-       
+
         IWebDriver driver { get; set; }
         public RegistrationPage(IWebDriver driver)
         {
             this.driver = driver;
         }
 
-        public void OpenHomePage()
+        public void OpenRegistrationPage()
         {
-            driver.Url = "http://demoqa.com";
+            driver.Url="http://demoqa.com/registration/";
         }
 
-        public void ClickRegistrationLink()
+        public void CheckRegistrationPageLoaded()
         {
-            IWebElement link = driver.FindElement(By.CssSelector("#menu-item-374 > a:nth-child(1)"));
-            link.Click();
-        }
-
-        public void WaitRegistrationPageLoad()
-        {
-            WebElementChecks.ShouldBeDisplayed(driver, By.Id("name_3_firstname"));
+            WebElementChecks.ShouldBeDisplayed(driver, By.ClassName("page-id-49"));
+            Assert.AreEqual("http://demoqa.com/registration/", driver.Url);
         }
 
         public void EnterFirstName(string text)
@@ -45,8 +40,8 @@ namespace ConsoleApplication1
 
         public void ChooseMaritalStatus(string maritalStatus)
         {
-           var radio = driver.FindElement(By.CssSelector("input[name='radio_4[]'][value='" + maritalStatus + "']"));
-           radio.Click();          
+            var radio = driver.FindElement(By.CssSelector("input[name='radio_4[]'][value='" + maritalStatus + "']"));
+            radio.Click();
         }
 
         public void ChooseHobby(string hobby)
@@ -54,28 +49,31 @@ namespace ConsoleApplication1
             driver.FindElement(By.CssSelector("input[value='" + hobby + "']")).Click();
         }
 
-        public void SelectCountry()
+        public SelectElement SelectCountry
         {
-            SelectElement selectCountry = new SelectElement(driver.FindElement(By.Id("dropdown_7")));
-            selectCountry.SelectByValue("Bolivia");
+            get
+            {
+                return new SelectElement(driver.FindElement(By.Id("dropdown_7")));
+            }
         }
 
-        public void SelectBirthMonth()
+        public SelectElement SelectBirthMonth
         {
-            SelectElement selectMonth = new SelectElement(driver.FindElement(By.Id("mm_date_8")));
-            selectMonth.SelectByText("5");
+            get { return new SelectElement(driver.FindElement(By.Id("mm_date_8"))); }
         }
 
-        public void SelectBirthDay()
+        public SelectElement SelectBirthDay
         {
-            SelectElement selectDay = new SelectElement(driver.FindElement(By.Id("dd_date_8")));
-            selectDay.SelectByText("18");
+            get
+            {
+                return new SelectElement(driver.FindElement(By.Id("dd_date_8")));
+            }
         }
 
-        public void SelectBirthYear()
+        public SelectElement SelectBirthYear
         {
-            SelectElement selectYear = new SelectElement(driver.FindElement(By.Id("yy_date_8")));
-            selectYear.SelectByText("1980");
+            get { return new SelectElement(driver.FindElement(By.Id("yy_date_8"))); }
+            
         }
 
         public void EnterPhoneNumber(string text)
@@ -115,12 +113,9 @@ namespace ConsoleApplication1
             submit.Click();
         }
 
-        public SelectElement SelectMonth
-        {
-            get { return new SelectElement(driver.FindElement(By.Id("mm_date_8"))); }
-        }
 
         const string xpathForFirstNameAndLastNameError = "//*[@id='pie_register']/li[1]/div[1]/div[2]/span";
+        const string xpathForHobbyError = "//*[@id='pie_register']/li[3]/div/div[2]/span";
 
         public void FirstNameRequiredErrorMessageShouldBeDisplayed()
         {
@@ -136,6 +131,11 @@ namespace ConsoleApplication1
         {
             IWebElement errormessage = WebElementChecks.ShouldBeDisplayed(driver, by);
             Assert.AreEqual("* This field is required", errormessage.Text);
+        }
+
+        public void RequiredHobbyErrorMessageShoulBeDisplayed()
+        {
+            RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForHobbyError));
         }
     }
    
