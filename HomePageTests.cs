@@ -37,14 +37,11 @@ namespace ConsoleApplication1
             homepage.InteractionMenuVisible("menu-item-143", "Resizable");
             homepage.InteractionMenuVisible("menu-item-151", "Sortable");
         }
-        [TearDown]
-        public void EndWindow()
-        {
-            driver.Close();
-        }
+
         [OneTimeTearDown]
         public void EndTest()
         {
+            driver.Close();
             driver.Quit();
         }
     }

@@ -37,8 +37,8 @@ namespace ConsoleApplication1
             string pagesource = driver.PageSource;
             System.Console.Write(pagesource);
             System.Console.Write(pagesource.Length);
-            driver.Close();
         }
+
         [Test]
         public void ExampleTest2()
         {
@@ -48,9 +48,8 @@ namespace ConsoleApplication1
             //driver.Navigate().Forward();
             //driver.Navigate().GoToUrl(driver.Url);
             //driver.Navigate().Refresh();
-            driver.Close();
-           
         }
+
         [Test]
         public void ExampleTest3()
         {
@@ -58,8 +57,8 @@ namespace ConsoleApplication1
             IWebElement element = driver.FindElement(By.ClassName("entry-title"));
             string title = "Home";
             Assert.AreEqual(title, element.Text);
-            driver.Close();
         }
+
         [Test]
         public void ExampleTest4()
         {
@@ -68,7 +67,6 @@ namespace ConsoleApplication1
             tabMenu.Click();
             IWebElement tab = driver.FindElement(By.Id("tabs-3"));
             Assert.IsTrue(tab.Enabled);           
-            driver.Close();
         }
 
         [Test]
@@ -88,19 +86,14 @@ namespace ConsoleApplication1
             wait.Until(ExpectedConditions.TextToBePresentInElement(label, "Please enter your username and password."));
             Assert.IsTrue(label.Displayed, "nije label vidljiv");
             Assert.AreEqual("Please enter your username and password.", label.Text);
-            driver.Close();            
         }
-        
-      
 
-        [TearDown]
-        public void EndWindow()
-        {
-            driver.Close();
-        }
+     
+
         [OneTimeTearDown]
         public void EndTest()
         {
+            driver.Close();
             driver.Quit();
         }
     }
