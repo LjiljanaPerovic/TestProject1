@@ -8,6 +8,7 @@ namespace ConsoleApplication1
     {
         IWebDriver driver;
         HomePage homepage;
+
         [OneTimeSetUp]
         public void Initialize()
         {
