@@ -8,6 +8,7 @@ namespace ConsoleApplication1
             this.driver = driver;
         }
         IWebDriver driver { get; set; }
+
         public void Visit()
         {
             driver.Url = "http://store.demoqa.com/products-page/your-account/";
