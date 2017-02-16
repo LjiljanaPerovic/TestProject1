@@ -32,14 +32,10 @@ namespace ConsoleApplication1
             Assert.AreEqual("News", menuItems[4].Text);
         }
 
-        [TearDown]
-        public void EndWindow()
-        {
-            driver.Close();
-        }
         [OneTimeTearDown]
         public void EndTest()
         {
+            driver.Close();
             driver.Quit();
         }
     }

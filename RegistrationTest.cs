@@ -33,7 +33,7 @@ namespace ConsoleApplication1
             registrationPage.SelectBirthYear.SelectByValue("1975");
             registrationPage.EnterPhoneNumber("44075123456");
             registrationPage.EnterUsername();
-            registrationPage.EnterEmail("lilly123555@gmail.com");
+            registrationPage.EnterEmail("lillylylli12@gmail.com");
             registrationPage.EnterPassword("lilly123");
             registrationPage.ConfirmPassword("lilly123");
             registrationPage.SubmitRegistrationForm();
@@ -75,15 +75,11 @@ namespace ConsoleApplication1
             registrationPage.SubmitRegistrationForm();
             registrationPage.RequiredHobbyErrorMessageShoulBeDisplayed();
         }
-
-        [TearDown]
-        public void EndWindow()
-        {
-            driver.Close();
-        }
+       
         [OneTimeTearDown]
         public void EndTest()
         {
+            driver.Close();
             driver.Quit();
         }
     }

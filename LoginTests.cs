@@ -8,19 +8,19 @@ namespace ConsoleApplication1
     [TestFixture]
     public class LoginTests
     {
-        IWebDriver driver;
+      
         LoginPage loginPage;
 
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            driver = new FirefoxDriver();
-        }
+        //[OneTimeSetUp]
+        //public void Initialize()
+        //{
+        //    driver = new FirefoxDriver();
+        //}
 
         [SetUp]
         public void Setup()
         {
-            loginPage = new LoginPage(driver);
+            loginPage = new LoginPage();
             loginPage.Visit();
         }
 
@@ -40,16 +40,13 @@ namespace ConsoleApplication1
             loginPage.ClickLoginButton();
         }
 
-        [TearDown]
-        public void EndWindow()
-        {
-            driver.Close();
-        }
-        [OneTimeTearDown]
-        public void EndTest()
-        {
-            driver.Quit();
-        }
+       
+        //[OneTimeTearDown]
+        //public void EndTest()
+        //{
+        //    driver.Close();
+        //    driver.Quit();
+        //}
     }
 
    

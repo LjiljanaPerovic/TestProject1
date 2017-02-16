@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClass.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="LoginPage.cs" />
