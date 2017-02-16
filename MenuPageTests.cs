@@ -6,17 +6,11 @@ namespace ConsoleApplication1
     [TestFixture]
     public class MenuPageTests
     {
-        IWebDriver driver;
         MenuPage menupage;
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            driver = new FirefoxDriver();
-        }
         [SetUp]
         public void SetUp()
         {
-            menupage = new MenuPage(driver);
+            menupage = new MenuPage();
         }
         [Test]
         public void CheckMenuItems()
@@ -30,13 +24,6 @@ namespace ConsoleApplication1
             Assert.AreEqual("Contact", menuItems[2].Text);
             Assert.AreEqual("FAQ", menuItems[3].Text);
             Assert.AreEqual("News", menuItems[4].Text);
-        }
-
-        [OneTimeTearDown]
-        public void EndTest()
-        {
-            driver.Close();
-            driver.Quit();
         }
     }
 }

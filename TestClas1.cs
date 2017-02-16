@@ -12,15 +12,10 @@ namespace ConsoleApplication1
 {
 
     [TestFixture]
-    public class TestClas1
+    public class TestClas1:Page
     {
         static void Main() { }
-        IWebDriver driver;
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            driver = new FirefoxDriver();
-        }
+        
         [Test]
         public void ExampleTest1()
         {
@@ -75,7 +70,7 @@ namespace ConsoleApplication1
             driver.Url = "http://store.demoqa.com/";
             IWebElement linkMyAcc = driver.FindElement(By.LinkText("AccountMy Account"));
             linkMyAcc.Click();
-            var interval = TimeSpan.FromSeconds(5);
+            var interval = TimeSpan.FromSeconds(30);
             WebDriverWait wait = new WebDriverWait(driver, interval);
             wait.Until(ExpectedConditions.ElementExists(By.Id("login")));
             Assert.AreEqual("http://store.demoqa.com/products-page/your-account/", driver.Url, "nije dobar url");
@@ -86,15 +81,6 @@ namespace ConsoleApplication1
             wait.Until(ExpectedConditions.TextToBePresentInElement(label, "Please enter your username and password."));
             Assert.IsTrue(label.Displayed, "nije label vidljiv");
             Assert.AreEqual("Please enter your username and password.", label.Text);
-        }
-
-     
-
-        [OneTimeTearDown]
-        public void EndTest()
-        {
-            driver.Close();
-            driver.Quit();
         }
     }
 

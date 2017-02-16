@@ -6,13 +6,8 @@ using System.Collections.Generic;
 
 namespace ConsoleApplication1
 {
-    public class HomePage
+    public class HomePage:Page
     {
-        IWebDriver driver { get; set; }
-        public HomePage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
         public void OpenHomePage()
         {
             driver.Url = "http://demoqa.com";
@@ -24,7 +19,7 @@ namespace ConsoleApplication1
         }
         public void CheckRegistrationPageLoaded()
         {
-            WebElementChecks.ShouldBeDisplayed(driver, By.ClassName("page-id-49"));
+            WebElementChecks.ShouldBeDisplayed(By.ClassName("page-id-49"));
             Assert.AreEqual("http://demoqa.com/registration/", driver.Url);
         }
         public void InteractionMenuVisible(string id,string text)

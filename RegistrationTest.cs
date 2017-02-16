@@ -6,17 +6,11 @@ namespace ConsoleApplication1
     [TestFixture]
     public class RegistrationTest
     {
-        IWebDriver driver;
         RegistrationPage registrationPage;
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            driver = new FirefoxDriver();
-        }
         [SetUp]
         public void SetUp()
         {
-            registrationPage = new RegistrationPage(driver);
+            registrationPage = new RegistrationPage();
         }
 
         [Test]
@@ -33,11 +27,11 @@ namespace ConsoleApplication1
             registrationPage.SelectBirthYear.SelectByValue("1975");
             registrationPage.EnterPhoneNumber("44075123456");
             registrationPage.EnterUsername();
-            registrationPage.EnterEmail("lillylylli12@gmail.com");
+            registrationPage.EnterEmail("lillybilly@gmail.com");
             registrationPage.EnterPassword("lilly123");
             registrationPage.ConfirmPassword("lilly123");
             registrationPage.SubmitRegistrationForm();
-            WebElementChecks.ShouldBeDisplayed(driver, By.ClassName("piereg_message"));
+            WebElementChecks.ShouldBeDisplayed(By.ClassName("piereg_message"));
         }
 
         [Test]
@@ -76,12 +70,6 @@ namespace ConsoleApplication1
             registrationPage.RequiredHobbyErrorMessageShoulBeDisplayed();
         }
        
-        [OneTimeTearDown]
-        public void EndTest()
-        {
-            driver.Close();
-            driver.Quit();
-        }
     }
 
 }

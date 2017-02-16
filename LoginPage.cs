@@ -1,11 +1,6 @@
 ﻿using OpenQA.Selenium;
 namespace ConsoleApplication1
 {
-    public abstract class Page
-    {
-        public IWebDriver driver { get { return BaseClass.driver; } }
-    }
-
     public class LoginPage : Page
     {
         public void Visit()

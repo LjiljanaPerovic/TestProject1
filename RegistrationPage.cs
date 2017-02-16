@@ -6,14 +6,8 @@ using System;
 namespace ConsoleApplication1
 {
 
-    public class RegistrationPage
+    public class RegistrationPage : Page
     {
-
-        IWebDriver driver { get; set; }
-        public RegistrationPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
 
         public void OpenRegistrationPage()
         {
@@ -22,7 +16,7 @@ namespace ConsoleApplication1
 
         public void CheckRegistrationPageLoaded()
         {
-            WebElementChecks.ShouldBeDisplayed(driver, By.ClassName("page-id-49"));
+            WebElementChecks.ShouldBeDisplayed(By.ClassName("page-id-49"));
             Assert.AreEqual("http://demoqa.com/registration/", driver.Url);
         }
 
@@ -129,7 +123,7 @@ namespace ConsoleApplication1
 
         private void RequiredFieldErrorMessageShouldBEDisplayed(By by)
         {
-            IWebElement errormessage = WebElementChecks.ShouldBeDisplayed(driver, by);
+            IWebElement errormessage = WebElementChecks.ShouldBeDisplayed(by);
             Assert.AreEqual("* This field is required", errormessage.Text);
         }
 

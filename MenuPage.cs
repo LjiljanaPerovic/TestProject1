@@ -6,20 +6,15 @@ using System.Collections.Generic;
 
 namespace ConsoleApplication1
 {
-    public class MenuPage
+    public class MenuPage:Page
     {
-        IWebDriver driver { get; set; }
-        public MenuPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
         public void OpenMenuPage()
         {
             driver.Url = "http://demoqa.com/menu/";
         }
         public void CheckMenuPageLoaded()
         {
-            WebElementChecks.ShouldBeDisplayed(driver, By.ClassName("page-id-43"));
+            WebElementChecks.ShouldBeDisplayed(By.ClassName("page-id-43"));
             Assert.AreEqual("http://demoqa.com/menu/", driver.Url);
         }
         public List<IWebElement> MenuItems

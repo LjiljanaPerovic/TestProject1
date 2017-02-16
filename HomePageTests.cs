@@ -6,26 +6,18 @@ namespace ConsoleApplication1
     [TestFixture]
     public class HomePageTests
     {
-        IWebDriver driver;
         HomePage homepage;
-
-        [OneTimeSetUp]
-        public void Initialize()
-        {
-            driver = new FirefoxDriver();
-        }
         [SetUp]
         public void SetUp()
         {
-            homepage = new HomePage(driver);
+            homepage = new HomePage();
         }
-
         [Test]
         public void CheckRegistrationLink()
         {
             homepage.OpenHomePage();
             homepage.ClickRegistrationLink();
-            RegistrationPage registrationPage = new RegistrationPage(driver);
+            RegistrationPage registrationPage = new RegistrationPage();
             registrationPage.CheckRegistrationPageLoaded();
         }
         [Test]
@@ -37,13 +29,6 @@ namespace ConsoleApplication1
             homepage.InteractionMenuVisible("menu-item-142", "Selectable");
             homepage.InteractionMenuVisible("menu-item-143", "Resizable");
             homepage.InteractionMenuVisible("menu-item-151", "Sortable");
-        }
-
-        [OneTimeTearDown]
-        public void EndTest()
-        {
-            driver.Close();
-            driver.Quit();
         }
     }
 }

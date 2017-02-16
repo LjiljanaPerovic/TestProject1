@@ -8,15 +8,7 @@ namespace ConsoleApplication1
     [TestFixture]
     public class LoginTests
     {
-      
         LoginPage loginPage;
-
-        //[OneTimeSetUp]
-        //public void Initialize()
-        //{
-        //    driver = new FirefoxDriver();
-        //}
-
         [SetUp]
         public void Setup()
         {
@@ -39,14 +31,7 @@ namespace ConsoleApplication1
             loginPage.PasswordField.SendKeys("WrongPassword");
             loginPage.ClickLoginButton();
         }
-
-       
-        //[OneTimeTearDown]
-        //public void EndTest()
-        //{
-        //    driver.Close();
-        //    driver.Quit();
-        //}
+      
     }
 
    
