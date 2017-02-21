@@ -5,10 +5,9 @@ using System;
 
 namespace ConsoleApplication1
 {
-
     public class RegistrationPage : Page
     {
-
+        ErrorMessages errorMessages = new ErrorMessages();
         public void OpenRegistrationPage()
         {
             driver.Url="http://demoqa.com/registration/";
@@ -113,23 +112,17 @@ namespace ConsoleApplication1
 
         public void FirstNameRequiredErrorMessageShouldBeDisplayed()
         {
-            RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForFirstNameAndLastNameError));
+            errorMessages.RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForFirstNameAndLastNameError));
         }
 
         public void LastNameREquiredErrorMessageShouldBeDisplayed()
         {
-            RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForFirstNameAndLastNameError));
-        }
-
-        private void RequiredFieldErrorMessageShouldBEDisplayed(By by)
-        {
-            IWebElement errormessage = WebElementChecks.ShouldBeDisplayed(by);
-            Assert.AreEqual("* This field is required", errormessage.Text);
+           errorMessages.RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForFirstNameAndLastNameError));
         }
 
         public void RequiredHobbyErrorMessageShoulBeDisplayed()
         {
-            RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForHobbyError));
+            errorMessages.RequiredFieldErrorMessageShouldBEDisplayed(By.XPath(xpathForHobbyError));
         }
     }
    

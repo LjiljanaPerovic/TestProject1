@@ -70,6 +70,15 @@ namespace ConsoleApplication1
             registrationPage.RequiredHobbyErrorMessageShoulBeDisplayed();
         }
        
+        /*
+         * required field - sva polja
+         * wrong email address
+         * password format: [too short, no number, no capital letter, no special character]
+         * passwords must match
+         * phone number format - sve opcije
+         * username already exists
+         * email address already exists
+         */
     }
 
 }

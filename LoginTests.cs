@@ -22,6 +22,7 @@ namespace ConsoleApplication1
             loginPage.UsernameField.SendKeys("Lica");
             loginPage.PasswordField.SendKeys("pass1");
             loginPage.ClickLoginButton();
+            //assert
         }
 
         [Test]
@@ -30,10 +31,13 @@ namespace ConsoleApplication1
             loginPage.UsernameField.SendKeys("Lica");
             loginPage.PasswordField.SendKeys("WrongPassword");
             loginPage.ClickLoginButton();
+            //assert
         }
-      
+
+        /*
+         * missing username
+         * missing password
+         * unknown username
+         */
     }
-
-   
-
 }

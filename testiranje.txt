@@ -1,0 +1,30 @@
+html & css
+selenium
+c#
+nunit
+sql
+
+
+git
+team city
+jira
+outlook
+teorija o testiranju
+jmeter
+browserstack
+specflow & BDD
+
+
+git checkout -b branchname
+git add .
+git commit -m "message"
+git checkout master
+git pull
+git checkout branchname
+git rebase master
+// in case of conflicts
+// git mergetool
+// git rebase --continue
+git checkout master
+git merge branchname
+git push

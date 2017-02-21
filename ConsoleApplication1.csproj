@@ -75,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClass.cs" />
+    <Compile Include="DatePickerPage.cs" />
+    <Compile Include="DatePickerPageTests.cs" />
+    <Compile Include="ErrorMessages.cs" />
     <Compile Include="HomePage.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="LoginPage.cs" />
@@ -85,7 +88,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationPage.cs" />
     <Compile Include="RegistrationTest.cs" />
+    <Compile Include="SwitchWindows.cs" />
+    <Compile Include="SwitchWindowsTests.cs" />
     <Compile Include="TestClas1.cs" />
+    <Compile Include="TestSetupAttribute.cs" />
     <Compile Include="WebElementChecks.cs" />
   </ItemGroup>
   <ItemGroup>
